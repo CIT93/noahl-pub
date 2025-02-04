@@ -52,6 +52,8 @@ console.log("Global Scope");
 function start() {
     const houseHoldPts = houseHoldImpact(5);
     const houseSizePts = houseSizeImpact("large");
+    const total = houseHoldPts + houseSizePts;
+    console.log(`Total Carbon Impact Score so far: ${total}`);
 }
 
 start();
