@@ -1,19 +1,20 @@
 function houseSizeImpact(size) {
     console.log("Inside Block");
+    let houseSizePoints = 0;
     if (size === "large") {
-        carbonFootprintPoints += 10;
+        houseSizePoints = 10;
     } else if (size === "medium") {
-        carbonFootprintPoints += 7;
+        houseSizePoints = 7;
     } else if (size === "small") {
-        carbonFootprintPoints += 4;
+        houseSizePoints = 4;
     } else if (size === "apt") {
-        carbonFootprintPoints += 2;
+        houseSizePoints = 2;
     }
     else {
-        console.log("Points did not update"); // Edgecase
-        return; // If points don't update then skip the following message since we know points didn't update
+        return houseSizePoints; // In the case of Edgecase
     }
-    console.log(`The carbon footprint has updated to ${carbonFootprintPoints}`)
+    console.log(`For a ${size} size house, the carbon footprint would be equal to ${houseSizePoints} points`)
+    return houseSizePoints;
 }
 
 function houseHoldImpact(numberInHousehold) {
@@ -50,9 +51,8 @@ function houseHoldImpact(numberInHousehold) {
 console.log("Global Scope");
 function start() {
     const houseHoldPts = houseHoldImpact(5);
-    //houseSizeImpact("large");
+    const houseSizePts = houseSizeImpact("large");
 }
 
 start();
-
-// Refactor the codebase so it's using less variables to make functions more easily repeatable
+// code worked :D
