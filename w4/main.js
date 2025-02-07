@@ -54,13 +54,22 @@ function start(numberInHousehold, houseSize) {
 }
 
 function displayOutput() {
-    
+    for (data of cfpData) {
+        console.log(data);
+        const output = document.getElementById("output");
+        const newParagraph = document.createElement("p");
+        const houseGrammarFormat = data[1] == "apt" ? `an Apartment` : `a ${data[1]} size house`;
+        const pluralization = data[0] > 1 ? "members" : "member";
+        newParagraph.textContent = `For ${houseGrammarFormat} with ${data[0]} ${pluralization} the Carbon Footprint score is ${data[4]} points`;
+        output.appendChild(newParagraph);
+    }
 }
 
-start(5, "apt");
-start(4, "large");
-start(3, "medium");
-start(2, "small");
+start(5, "large");
+start(2, "medium");
 start(1, "apt");
+start(3, "medium");
+start(2, "apt");
+start(4, "large");
 
 displayOutput();
