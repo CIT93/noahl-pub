@@ -1,23 +1,23 @@
-function houseSizeImpact(size) {
-    console.log("Inside Block");
-    if (size === "large") {
-        carbonFootprintPoints += 10;
-    } else if (size === "medium") {
-        carbonFootprintPoints += 7;
-    } else if (size === "small") {
-        carbonFootprintPoints += 4;
-    } else if (size === "apt") {
-        carbonFootprintPoints += 2;
+const cfpData = [];
+
+function houseSizeImpact(houseSize) {
+    let houseSizePoints = 0;
+    if (houseSize === "large") {
+        houseSizePoints = 10;
+    } else if (houseSize === "medium") {
+        houseSizePoints = 7;
+    } else if (houseSize === "small") {
+        houseSizePoints = 4;
+    } else if (houseSize === "apt") {
+        houseSizePoints = 2;
     }
     else {
-        console.log("Points did not update"); // Edgecase
-        return; // If points don't update then skip the following message since we know points didn't update
+        return houseSizePoints; // In the case of Edgecase
     }
-    console.log(`The carbon footprint has updated to ${carbonFootprintPoints}`)
+    return houseSizePoints;
 }
 
 function houseHoldImpact(numberInHousehold) {
-    console.log("Inside Block");
     let houseHoldPoints = 0;
     if (numberInHousehold === 1) {
         houseHoldPoints = 14;
@@ -43,16 +43,24 @@ function houseHoldImpact(numberInHousehold) {
     else {
         return houseHoldPoints; // In the case of Edgecase
     }
-    console.log(`With a household of ${numberInHousehold} members, the carbon footprint would be equal to ${houseHoldPoints} points`)
     return houseHoldPoints;
 }
 
-console.log("Global Scope");
-function start() {
-    const houseHoldPts = houseHoldImpact(5);
-    //houseSizeImpact("large");
+function start(numberInHousehold, houseSize) {
+    const houseHoldPts = houseHoldImpact(numberInHousehold);
+    const houseSizePts = houseSizeImpact(houseSize);
+    const total = houseHoldPts + houseSizePts;
+    cfpData.push([numberInHousehold, houseSize, houseHoldPts, houseSizePts, total]);
 }
 
-start();
+function displayOutput() {
+    
+}
 
-// Refactor the codebase so it's using less variables to make functions more easily repeatable
+start(5, "apt");
+start(4, "large");
+start(3, "medium");
+start(2, "small");
+start(1, "apt");
+
+displayOutput();
