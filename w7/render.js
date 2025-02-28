@@ -1,10 +1,10 @@
 const TABLE = document.getElementById("table-data");
 
-function createTable() {
+function createTableHead() {
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
-    const headingTextArray = ["Name", "HouseHold", "HouseSize", "Footprint", "Actions"];
+    const headingTextArray = ["Name", "Footprint"];
 
     headingTextArray.forEach(function(text) {
         const th = document.createElement("th");
@@ -19,29 +19,34 @@ function createTable() {
 }
 
 function renderTable(data) {
-    const table = createTable();
-    const tableBody = document.createElement("tbody");
-    const tr = document.createElement("tr");
-    const trTextArray = ["Noah", 4, "Medium", 15];
+    TABLE.textContent = "";
 
-    trTextArray.forEach(function(text) {
-        const td = document.createElement("td");
-        td.textContent = text;
-        tr.appendChild(td);
+    const table = createTableHead();
+    const tableBody = document.createElement("tbody");
+
+    data.forEach(function(submittedData) {
+        const tr = document.createElement("tr");
+        const tdName = document.createElement("td");
+        const tdTotal = document.createElement("td");
+
+        tdName.textContent = submittedData.name;
+        tdTotal.textContent = submittedData.total;
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdTotal);
+        tableBody.appendChild(tr);
     });
 
-    const td = document.createElement("td");
-    const editButton = document.createElement("button");
-    const deleteButton = document.createElement("button");
+    // const td = document.createElement("td");
+    // const editButton = document.createElement("button");
+    // const deleteButton = document.createElement("button");
 
-    editButton.textContent = "Edit";
-    deleteButton.textContent = "Del";
+    // editButton.textContent = "Edit";
+    // deleteButton.textContent = "Del";
 
-    // It doesn't exist in the current block scope
-    td.appendChild(editButton);
-    td.appendChild(deleteButton);
-    tr.appendChild(td);
-    tableBody.appendChild(tr);
+    // td.appendChild(editButton);
+    // td.appendChild(deleteButton);
+    // tr.appendChild(td);
 
     table.appendChild(tableBody);
     TABLE.appendChild(table);
