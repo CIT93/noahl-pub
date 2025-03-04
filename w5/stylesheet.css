@@ -1,0 +1,18 @@
+html {
+    font-family: arial;
+    font-size: 22px;
+}
+
+body {
+    background-color: #222;
+    color: #a2a2d4;
+}
+
+table, th, td {
+    border: 1px solid;
+    padding: 5px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #002394;
+}

@@ -1,37 +1,27 @@
-const moviesArray = []; // Keeping the array and function for readability and usability
+import { renderTable } from "./renderTable.js";
+const moviesArray = [];
 
-function addMovie(movieTitle, movieReleaseYear, movieRating, timesWatched) {
+function addMovie(title, releaseYear, rating, timesWatched) {
     const movieObj = {
-        title: movieTitle,
-        releaseYear: movieReleaseYear,
-        rating: movieRating,
+        title: title,
+        releaseYear: releaseYear,
+        rating: rating,
         watched: timesWatched
     };
 
     moviesArray.push(movieObj);
 }
 
-function displayMovies(movies) {
-    const output = document.getElementById("output");
+addMovie("The Martian", 2015, 9.3, 8);
+addMovie("Interstellar", 2014, 9.8, 4);
+addMovie("Doctor Strange", 2016, 8.1, 6);
+addMovie("El Camino", 2019, 7.7, 2);
+addMovie("The Time Machine", 1960, 7.2, 11);
+addMovie("Black Widow", 2021, 3.9, 1);
+addMovie("Catch Me If You Can", 2002, 8, 3);
+addMovie("Knives Out", 2019, 9.6, 4);
 
-    // They made foreach a lambda???
-    movies.forEach(movie => {
-        const newH2 = document.createElement("h2");
-        if (movie.rating >= 7 && movie.watched >= 3) {
-            newH2.textContent = `I have watched ${movie.title} (${movie.releaseYear}) ${movie.watched} times and give it a rating of ${movie.rating}/10`;
-        } else {
-            newH2.textContent = `N/A` // idk
-        }
-        output.appendChild(newH2);
-    });
-}
+// Sort by rating
+moviesArray.sort((a, b) => (a.rating < b.rating));
 
-// I rarely watch movies idk what to put
-addMovie("Interstellar", 2014, 10, 4);
-addMovie("The Martian", 2015, 9, 8);
-addMovie("Doctor Strange", 2016, 8, 6);
-addMovie("El Camino", 2019, 7, 2);
-addMovie("The Time Machine", 1960, 7, 11);
-addMovie("Black Widow", 2021, 4, 1);
-
-displayMovies(moviesArray);
+renderTable(moviesArray);
