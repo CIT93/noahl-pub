@@ -24,20 +24,14 @@ function createTableBody(movies) {
     movies.forEach(function(movie) {
         if (movie.rating >= 7 && movie.watched >= 3) {
             const tr = document.createElement("tr");
-            const tdTitle = document.createElement("td");
-            const tdYear = document.createElement("td");
-            const tdRating = document.createElement("td");
-            const tdViewed = document.createElement("td");
-    
-            tdTitle.textContent = movie.title;
-            tdYear.textContent = movie.releaseYear;
-            tdRating.textContent = movie.rating;
-            tdViewed.textContent = movie.watched;
-    
-            tr.appendChild(tdTitle);
-            tr.appendChild(tdYear);
-            tr.appendChild(tdRating);
-            tr.appendChild(tdViewed);
+
+            // Instant refactor because I got blind-sided by an easier solution
+            for (const key in movie) {
+                const tableData = document.createElement("td");
+                tableData.textContent = movie[key];
+                tr.appendChild(tableData);
+            }
+
             tbody.appendChild(tr);
         }
     });
