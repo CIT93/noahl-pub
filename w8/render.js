@@ -1,3 +1,4 @@
+import { FORM } from "./main.js"
 const TABLE = document.getElementById("table-data");
 
 function createTableHead() {
@@ -27,11 +28,16 @@ function createTableButtons(data, index) {
     deleteButton.textContent = "Del";
 
     editButton.addEventListener('click', function(e) {
-        
+        FORM.firstName.value = data[index].firstName;
+        FORM.lastName.value = data[index].lastName;
+        FORM.houseSize.value = data[index].houseSize;
+        FORM.houseHoldMembers.value = data[index].houseHoldMembers;
+
+        data.splice(index, 1);
+        renderTable(data);
     });
 
     deleteButton.addEventListener('click', function(e) {
-        console.log("delete");
         data.splice(index, 1);
         renderTable(data);
     });
@@ -70,12 +76,13 @@ function createTableBody(data) {
 
 function renderTable(data) {
     TABLE.textContent = "";
-
-    const table = createTableHead();
-    const tableBody = createTableBody(data);
-
-    table.appendChild(tableBody);
-    TABLE.appendChild(table);
+    if (data.length > 0) {
+        const table = createTableHead();
+        const tableBody = createTableBody(data);
+    
+        table.appendChild(tableBody);
+        TABLE.appendChild(table);
+    }
 }
 
 export { renderTable };

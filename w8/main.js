@@ -1,7 +1,7 @@
 import { renderTable } from "./render.js";
 import { determineHouseSizePts, determineHouseHoldPts } from "./cfp.js";
 
-const FORM = document.getElementById("form");
+export const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 const cfpDataArray = []
 
