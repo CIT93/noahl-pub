@@ -1,0 +1,2 @@
+# My Understanding of Local Storage
+#### To my understanding it is used to save data that has been entered into the webpage directly to the browser so they can be restored later. It sounds similar to cookies but cookie data is stored directly onto the computer instead of in the browser.
