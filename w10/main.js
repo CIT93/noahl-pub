@@ -3,16 +3,16 @@ import { determineHouseSizePts, determineHouseHoldPts } from "./cfp.js";
 import { FORM, FIRSTNAME, LASTNAME, SUBMITERROR } from "./global.js";
 import { localSave, cfpDataArray } from "./storage.js";
 
-const start = function(firstName, lastName, houseSize, houseHoldMembers) {
-    const houseSizePTS = determineHouseSizePts(houseSize);
-    const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
+const start = (...cfpObjects) => {
+    const houseSizePTS = determineHouseSizePts(cfpObjects[2]);
+    const houseHoldPTS = determineHouseHoldPts(cfpObjects[3]);
     const total = houseHoldPTS + houseSizePTS;
     
     const cfpDataObject = {
-        firstName: firstName,
-        lastName: lastName,
-        houseSize: houseSize,
-        houseHoldMembers: houseHoldMembers,
+        firstName: cfpObjects[0],
+        lastName: cfpObjects[1],
+        houseSize: cfpObjects[2],
+        houseHoldMembers: cfpObjects[3],
         houseHoldPts: houseHoldPTS,
         houseSizePts: houseSizePTS,
         total: total
@@ -21,7 +21,7 @@ const start = function(firstName, lastName, houseSize, houseHoldMembers) {
     cfpDataArray.push(cfpDataObject);
 }
 
-const validateField = function(e) {
+const validateField = e => {
     const field = e.target.value;
     const fieldId = e.target.id;
     const fieldError = document.getElementById(`${fieldId}Error`);
@@ -40,7 +40,7 @@ LASTNAME.addEventListener('blur', validateField);
 
 renderTable(cfpDataArray);
 
-FORM.addEventListener('submit', function(e) {
+FORM.addEventListener('submit', e => {
     e.preventDefault();
     if (FIRSTNAME.value !== "" && LASTNAME.value !== "") {
         SUBMITERROR.textContent = "";
@@ -54,16 +54,3 @@ FORM.addEventListener('submit', function(e) {
         SUBMITERROR.textContent = "Form requires first name and last name";
     }
 });
-
-const add2 = function(...a) {
-    return 2 + a(3);
-}
-
-const result = add2(1, 2, 3, 4);
-
-// IIFE
-const a = 3;
-
-(function(a) {
-    console.log(a);
-})(a);

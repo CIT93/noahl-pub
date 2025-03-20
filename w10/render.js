@@ -1,7 +1,7 @@
 import { FORM, TABLE } from "./global.js"
 import { localSave } from "./storage.js";
 
-const createTableHead = function() {
+const createTableHead = () => {
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
@@ -19,13 +19,13 @@ const createTableHead = function() {
     return table;
 }
 
-const onUpdate = function(data, index) {
+const onUpdate = (data, index) => {
     data.splice(index, 1);
     localSave(data);
     renderTable(data);
 }
 
-const createTableButtons = function(data, index) {
+const createTableButtons = (data, index) => {
     const rowButtons = document.createElement("td");
     const editButton = document.createElement("button");
     const deleteButton = document.createElement("button");
@@ -33,7 +33,7 @@ const createTableButtons = function(data, index) {
     editButton.textContent = "Edit";
     deleteButton.textContent = "Del";
 
-    editButton.addEventListener('click', function(e) {
+    editButton.addEventListener('click', () => {
         FORM.firstName.value = data[index].firstName;
         FORM.lastName.value = data[index].lastName;
         FORM.houseSize.value = data[index].houseSize;
@@ -42,7 +42,7 @@ const createTableButtons = function(data, index) {
         onUpdate(data, index);
     });
 
-    deleteButton.addEventListener('click', function(e) {
+    deleteButton.addEventListener('click', () => {
         onUpdate(data, index);
     });
 
@@ -52,10 +52,10 @@ const createTableButtons = function(data, index) {
     return rowButtons;
 }
 
-const createTableBody = function(data) {
+const createTableBody = data => {
     const tableBody = document.createElement("tbody");
 
-    data.forEach(function(submittedData, index) {
+    data.forEach((submittedData, index) => {
         const tr = document.createElement("tr");
 
         for (const [key, value] of Object.entries(submittedData)) {
@@ -79,7 +79,7 @@ const createTableBody = function(data) {
     return tableBody;
 }
 
-const renderTable = function(data) {
+const renderTable = data => {
     TABLE.textContent = "";
     if (data.length > 0) {
         const table = createTableHead();
