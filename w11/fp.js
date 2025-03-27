@@ -1,12 +1,15 @@
 class Footprint {
-    constructor(firstName, lastName, houseSize, houseHoldMembers) {
+    constructor(firstName, lastName, houseSize, houseHoldMembers, foodEvaluation) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.houseSize = houseSize;
         this.houseHoldMembers = houseHoldMembers;
+        this.foodEvaluation = foodEvaluation;
 
         this.houseHoldPoints(); 
         this.houseSizePoints();
+        this.foodPoints();
+
         this.calculateTotal();
     }
 
@@ -29,9 +32,9 @@ class Footprint {
     }
 
     houseSizePoints() {
-        if(this.houseSize === "large") {
+        if (this.houseSize === "large") {
             this.houseSizePoints = 10;
-        } else if(this.houseSize === "medium") {
+        } else if (this.houseSize === "medium") {
             this.houseSizePoints = 7;
         } else if (this.houseSize === "small") {
             this.houseSizePoints = 4;
@@ -40,8 +43,20 @@ class Footprint {
         }
     }
 
+    foodPoints() {
+        if (this.foodEvaluation === "domesticDaily") {
+            this.foodPoints = 10;
+        } else if (this.foodEvaluation === "domesticWeekly") {
+            this.foodPoints = 8;
+        } else if (this.foodEvaluation === "vegetarian") {
+            this.foodPoints = 4;
+        } else if (this.foodEvaluation === "vegan") {
+            this.foodPoints = 2;
+        }
+    }
+
     calculateTotal() {
-        this.total = this.houseHoldPoints + this.houseSizePoints;
+        this.total = this.houseHoldPoints + this.houseSizePoints + this.foodPoints;
     }
 }
 

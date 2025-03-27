@@ -5,7 +5,7 @@ const createTableHead = () => {
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
-    const headingTextArray = ["Name", "House Size", "Member Count", "Footprint", "Actions"];
+    const headingTextArray = ["Name", "House Size", "Member Count", "Food Evaluation", "Footprint", "Actions"];
 
     headingTextArray.forEach(function(text) {
         const th = document.createElement("th");
@@ -39,6 +39,7 @@ const createTableButtons = (data, index) => {
         FORM.lastName.value = data[index].lastName;
         FORM.houseSize.value = data[index].houseSize;
         FORM.houseHoldMembers.value = data[index].houseHoldMembers;
+        FORM.foodEval.value = data[index].foodEvaluation;
 
         onUpdate(data, index);
     });
@@ -55,6 +56,7 @@ const createTableButtons = (data, index) => {
 
 const createTableBody = data => {
     const tableBody = document.createElement("tbody");
+    const ignoredValues = ["lastName", "houseHoldPoints", "houseSizePoints", "foodPoints"];
 
     data.forEach((submittedData, index) => {
         const tr = document.createElement("tr");
@@ -62,7 +64,7 @@ const createTableBody = data => {
         for (const [key, value] of Object.entries(submittedData)) {
             console.log(`key: ${key}, value: ${value}`);
 
-            if (key !== "lastName" && key !== "houseHoldPoints" && key !== "houseSizePoints") {
+            if (!ignoredValues.includes(key)) {
                 console.log(`Building on ${key}`);
 
                 const td = document.createElement("td");
