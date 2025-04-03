@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 12</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form">
+        <fieldset>
+            <legend>Async Workout</legend>
+            <div>
+                <label for="">Type of Exercise</label>
+                <select name="exercise" id="exerciseList" required>
+                    <option value="">---Select your Exercise---</option>
+                    <option value="pushUp">Pushups</option>
+                    <option value="pullUp">Pullups</option>
+                    <option value="jumpJack">Jumping Jacks</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="">Target Rep Count</label>
+                <input type="number" name="repCount" min="5" value="20" required/>
+            </div>
+
+            <div>
+                <label for="">Time (In Minutes)</label>
+                <input type="number" name="repTime" min="1" value="5" required/>
+            </div>
+
+            <div>
+                <label for="">Get Ready... </label>
+                <button type="submit" id="submitButton">Go</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <div id="output">
+        <p>Click 'Go' to start!</p>
+    </div>
+</body>
