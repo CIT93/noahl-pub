@@ -1,0 +1,21 @@
+html {
+    font-size: 22px;
+}
+
+body {
+    color: #e8e8e8;
+    background-color: #252575;
+}
+
+#submitButton {
+    border-radius: 3px;
+    background-color: #ddd;
+}
+
+#form {
+    width: 20%;
+}
+
+#output {
+    margin-left: 4px;
+}
