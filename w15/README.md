@@ -1,0 +1,2 @@
+### Rest Operators [function(a = value)] lets you set a default parameter incase a value is not invoked upon function call
+### Spread Arguments [functon(..a)] lets you pass in multiple values to one parameter and access it the values like an array
