@@ -44,7 +44,7 @@ const createTableButtons = (data, index) => {
         FORM.houseHoldMembers.value = data[index].houseHoldMembers;
         FORM.foodEval.value = data[index].foodEvaluation;
         FORM.foodSource.value = data[index].foodSource;
-        FORM.waterConsum.value = data[index].waterConsumPoints;
+        FORM.waterConsum.value = data[index].waterConsumption;
 
         onUpdate(data, index);
     });

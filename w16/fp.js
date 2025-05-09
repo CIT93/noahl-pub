@@ -1,12 +1,13 @@
 class Footprint {
-    constructor(firstName, lastName, houseSize, houseHoldMembers, foodEvaluation, foodSource, waterConsumption) {
+    constructor(firstName, lastName, houseSize, houseHoldMembers, foodEvaluation, foodSource, waterConsumption, ownsBoth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.houseSize = houseSize;
         this.houseHoldMembers = houseHoldMembers;
         this.foodEvaluation = foodEvaluation;
         this.foodSource = foodSource;
-        this.waterConsumPoints = waterConsumption;
+        this.waterConsumption = waterConsumption; // Don't break edit
+        this.waterConsumPoints = ownsBoth ? waterConsumption * 2 : waterConsumption;
 
         this.calculateHouseHoldPoints(); 
         this.calculateHouseSizePoints();
