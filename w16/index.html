@@ -76,6 +76,18 @@
                 <input type="checkbox" name="washer" id="dishWash" checked>
             </div>
 
+            <div>
+                <label>Household Purchases</label>
+                <select name="homePurchase" required>
+                    <option value="">---How many household purchases do you make per year---</option>
+                    <option value="largeSpender">>7 Household purchases</option>
+                    <option value="bigSpender">5-7 Household purchases</option>
+                    <option value="fairSpender">3-5 Household purchases</option>
+                    <option value="smallSpender"><\3 Household purchases</option>
+                    <option value="nonSpender">Only purchase secondhand items</option>
+                </select>
+            </div>
+
             <button type="submit" id="submitButton">Submit</button>
             <span id="submitError" class="error"></span>
         </fieldset>

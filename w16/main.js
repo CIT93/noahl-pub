@@ -44,6 +44,7 @@ FORM.addEventListener('submit', e => {
             e.target.foodEval.value, 
             e.target.foodSource.value,
             parseInt(e.target.waterConsum.value),
+            e.target.homePurchase.value,
             e.target.washer.checked
         );
 

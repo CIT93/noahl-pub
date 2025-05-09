@@ -1,5 +1,5 @@
 class Footprint {
-    constructor(firstName, lastName, houseSize, houseHoldMembers, foodEvaluation, foodSource, waterConsumption, ownsBoth) {
+    constructor(firstName, lastName, houseSize, houseHoldMembers, foodEvaluation, foodSource, waterConsumption, homePurchases, ownsBoth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.houseSize = houseSize;
@@ -8,11 +8,13 @@ class Footprint {
         this.foodSource = foodSource;
         this.waterConsumption = waterConsumption; // Don't break edit
         this.waterConsumPoints = ownsBoth ? waterConsumption * 2 : waterConsumption;
+        this.homePurchases = homePurchases;
 
         this.calculateHouseHoldPoints(); 
         this.calculateHouseSizePoints();
         this.calculateFoodPoints();
         this.calculateSourcePoints();
+        this.calculateHomePurchasePoints();
 
         this.calculateTotal();
     }
@@ -69,8 +71,22 @@ class Footprint {
         }
     }
 
+    calculateHomePurchasePoints() {
+        if (this.homePurchases === "largeSpender") {
+            this.purchasePoints = 10;
+        } else if (this.homePurchases === "bigSpender") {
+            this.purchasePoints = 8;
+        } else if (this.homePurchases === "fairSpender") {
+            this.purchasePoints = 6;
+        } else if (this.homePurchases === "smallSpender") {
+            this.purchasePoints = 4;
+        } else if (this.homePurchases === "nonSpender") {
+            this.purchasePoints = 2;
+        }
+    }
+
     calculateTotal() {
-        this.total = this.houseHoldPoints + this.houseSizePoints + this.foodPoints + this.foodSourcePoints + this.waterConsumPoints;
+        this.total = this.houseHoldPoints + this.houseSizePoints + this.foodPoints + this.foodSourcePoints + this.waterConsumPoints + this.purchasePoints;
     }
 }
 
