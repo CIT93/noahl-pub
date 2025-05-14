@@ -25,9 +25,9 @@ tbody tr:nth-child(even) {
     background-color: #230094;
 }
 
-#table { /* Move table so its aligned */
+table { /* Move table so its aligned */
+    margin: auto;
     margin-top: 8px;
-    margin-left: 2px;
 }
 
 .error {
@@ -43,7 +43,15 @@ a:visited {
     color: #d275eb;
 }
 
-#modifiers {
-    margin-top: -14px;
-    margin-bottom: 10px;
+#modifier {
+    margin-right: -36px;
+}
+
+#fieldMain {
+    margin: auto;
+    width: 35%;
+}
+
+#fieldMods {
+    margin-bottom: 8px;
 }

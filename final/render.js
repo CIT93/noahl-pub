@@ -76,6 +76,10 @@ function createTableButtons(recommendations, index) {
         FORM.topPlay.value = recommendations[index].playerTopPlay;
         FORM.skillSet.value = recommendations[index].playerSkillSet;
 
+        FORM.hidden.checked = recommendations[index].modifiers.includes("HD");
+        FORM.hardrock.checked = recommendations[index].modifiers.includes("HR");
+        FORM.doubletime.checked = recommendations[index].modifiers.includes("DT");
+
         onUpdate(recommendations, index);
     });
 

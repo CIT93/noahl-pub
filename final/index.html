@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form">
-        <fieldset>
+        <fieldset id="fieldMain">
             <legend>Osu! Beatmap Recommender</legend>
             <div>
                 <label for="topPlay">Your top play (in Performance Points)</label>
@@ -28,17 +28,18 @@
                 </select>
                 <span id="skillSetError" class="error"></span>
             </div>
-            <div>
-                <p>Select The Modifiers You Want:</p>
-                <div id="modifiers">
-                    <label for="hidden">Hidden</label>
+            
+            <fieldset id="fieldMods">
+                <legend>Select Desired Modifiers</legend>
+                <div>
+                    <label id="modifier" for="hidden">Hidden</label>
                     <input type="checkbox" name="hidden" value="HD">
-                    <label for="hardrock">Hardrock</label>
+                    <label id="modifier" for="hardrock">Hardrock</label>
                     <input type="checkbox" name="hardrock" value="HR">
-                    <label for="doubletime">Doubletime</label>
+                    <label id="modifier" for="doubletime">Doubletime</label>
                     <input type="checkbox" name="doubletime" value="DT">
                 </div>
-            </div>
+            </fieldset>
         <button type="submit" id="submitButton">Submit</button>
         <span id="submissionError" class="error"></span>
         </fieldset>
