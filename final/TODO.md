@@ -1,0 +1,4 @@
+~~1. Implement ability to select modifiers <- Been neglacting this cause making a multi-checkbox drop down list with limited HTML/CSS knowledge is extremely difficult~~
+## 2. Refactor code so its not split across like 10 files, ideally util stuff can be moved into the files where they are relevant since shuffle and fetchdata are used in only 1 file
+## 3. Change from randomization to a check submit, instead of shuffling maps each time I'd like to be able to submit and have the same maps show up each time in order
+~~4. Allow for >1000pp: recent 2048pp play made me realize that 1k is like not a lot anymore, the only issue is that 1k is only doable with DT which is why I went against it initially~~

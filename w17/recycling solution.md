@@ -1,0 +1,1 @@
+My only real thought would be a long list of checkboxes, I feel like it would get somewhat cluttered fairly quickily but I also don't really have any other ideas for a solution.

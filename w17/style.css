@@ -1,0 +1,49 @@
+html {
+    font-size: 22px;
+}
+
+body {
+    background-color: #333;
+    color: #e8e8e8;
+}
+
+input:in-range {
+    background-color: lightgreen;
+}
+
+input:out-of-range {
+    background-color: lightcoral;
+}
+
+table, th, td {
+    border: 1px solid;
+    padding: 5px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #002394;
+}
+
+.error {
+    color: #c50000;
+}
+
+.invalid {
+    border-color: #c50000;
+}
+
+#submitButton {
+    border-radius: 3px;
+    background-color: #ddd;
+}
+
+#table-data { /* Move the table data so its aligned, this has been bugging me */
+    margin-top: 8px;
+    margin-left: 2px;
+}
+
+img {
+    margin-top: 8px;
+    margin-left: 2px;
+    width: 250px;
+}
