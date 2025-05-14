@@ -1,5 +1,11 @@
 class Footprint {
-    constructor(firstName, lastName, houseSize, houseHoldMembers, foodEvaluation, foodSource, waterConsumption, homePurchases, ownsBoth, waste, recycling) {
+    constructor(firstName, lastName, 
+        houseSize, houseHoldMembers, 
+        foodEvaluation, foodSource, 
+        waterConsumption, homePurchases, 
+        ownsBoth, waste, 
+        recycling, personalVehiclePoints,
+        publicTransportPoints, flyingTransportPoints) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.houseSize = houseSize;
@@ -11,6 +17,9 @@ class Footprint {
         this.homePurchases = homePurchases;
         this.waste = waste;
         this.recycling = recycling;
+        this.personalVehiclePoints = personalVehiclePoints;
+        this.publicTransportPoints = publicTransportPoints;
+        this.flyingTransportPoints = flyingTransportPoints;
 
         this.calculateHouseHoldPoints(); 
         this.calculateHouseSizePoints();
@@ -103,7 +112,18 @@ class Footprint {
     }
 
     calculateTotal() {
-        this.total = this.houseHoldPoints + this.houseSizePoints + this.foodPoints + this.foodSourcePoints + this.waterConsumPoints + this.purchasePoints + this.wastePoints + this.recycling.recyclePoints;
+        this.total = 
+        this.houseHoldPoints + 
+        this.houseSizePoints + 
+        this.foodPoints + 
+        this.foodSourcePoints + 
+        this.waterConsumPoints + 
+        this.purchasePoints + 
+        this.wastePoints + 
+        this.recycling.recyclePoints + 
+        this.personalVehiclePoints + 
+        this.publicTransportPoints + 
+        this.flyingTransportPoints;
     }
 }
 

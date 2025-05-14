@@ -118,6 +118,45 @@
                 </div>
             </fieldset>
 
+            <fieldset>
+                <legend>How far do you travel</legend>
+                <div>
+                    <label>Personal Vehicle</label>
+                    <select name="personalTransport" required>
+                    <option value="">---How far do you travel with your personal vehicle per year---</option>
+                    <option value="12">>15,000 miles</option>
+                    <option value="10">10,000 - 15,000 miles</option>
+                    <option value="6">1,000 - 10,000 miles</option>
+                    <option value="4"><1,000 miles</option>
+                    <option value="0">Don't own a car</option>
+                </select>
+                </div>
+
+                <div>
+                    <label>Public Transport</label>
+                    <select name="publicTransport" required>
+                    <option value="">---How far do you typically travel on public transport per year---</option>
+                    <option value="12">>20,000 miles</option>
+                    <option value="10">15,000 - 20,0000 miles</option>
+                    <option value="6">10,000 - 15,000 miles</option>
+                    <option value="4">1,000 - 10,000 miles</option>
+                    <option value="2"><1,000 miles</option>
+                    <option value="0">Don't use public transport</option>
+                </select>
+                </div>
+
+                <div>
+                    <label>Flights</label>
+                    <select name="flyingTransport" required>
+                    <option value="">---How far do you typically fly per year---</option>
+                    <option value="20">Far away; other continents</option>
+                    <option value="6">Nearby states/countries</option>
+                    <option value="2">Within own state/region</option>
+                    <option value="0">Don't typically fly</option>
+                </select>
+                </div>
+            </fieldset>
+
             <button type="submit" id="submitButton">Submit</button>
             <span id="submitError" class="error"></span>
         </fieldset>

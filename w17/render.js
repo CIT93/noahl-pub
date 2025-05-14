@@ -55,6 +55,10 @@ const createTableButtons = (data, index) => {
         FORM.steel.checked = data[index].recycling.steel;
         FORM.food.checked = data[index].recycling.food;
 
+        FORM.personalTransport.value = data[index].personalVehiclePoints;
+        FORM.publicTransport.value = data[index].publicTransportPoints;
+        FORM.flyingTransport.value = data[index].flyingTransportPoints;
+
         onUpdate(data, index);
     });
 

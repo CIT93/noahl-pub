@@ -60,7 +60,10 @@ FORM.addEventListener('submit', e => {
             e.target.homePurchase.value,
             e.target.washer.checked,
             e.target.waste.value,
-            determineRecycleItems(e)
+            determineRecycleItems(e),
+            parseInt(e.target.personalTransport.value),
+            parseInt(e.target.publicTransport.value),
+            parseInt(e.target.flyingTransport.value)
         );
 
         cfpDataArray.push(fpObj);
